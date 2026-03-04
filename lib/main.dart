@@ -1,15 +1,19 @@
-import 'services/weather_service.dart';
 import 'package:flutter/material.dart';
-void main() async {
-  final service = WeatherService();
+import 'screens/home_screen.dart';
 
-  try {
-    final weather = await service.fetchWeather('Manila');
-    print('City: ${weather.cityName}');
-    print('Temp: ${weather.temperature}°C');
-    print('Desc: ${weather.description}');
-    print('Humidity: ${weather.humidity}%');
-  } catch (e) {
-    print('Error: $e');
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Weather App',
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
   }
 }
